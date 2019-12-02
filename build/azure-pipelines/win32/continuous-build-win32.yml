@@ -19,7 +19,7 @@ steps:
     cacheHitVar: CacheRestored
   displayName: Cache node_modules
 
-  - powershell: |
+- powershell: |
     yarn --frozen-lockfile
   env:
     CHILD_CONCURRENCY: "1"
