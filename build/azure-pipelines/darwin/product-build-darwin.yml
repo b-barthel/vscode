@@ -11,7 +11,7 @@ steps:
     restoreKeys: |
       build/.cachesalt | .build/commit
       build/.cachesalt
-    path: '.build, out-build, out-vscode-min, out-vscode-reh-min, out-vscode-reh-web-min'
+    path: {.build, out-build, out-vscode-min, out-vscode-reh-min, out-vscode-reh-web-min|}
     cacheHitVar: CacheRestored-Compilation
   displayName: Cache
 
