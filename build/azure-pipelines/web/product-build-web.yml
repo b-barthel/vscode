@@ -5,13 +5,15 @@ steps:
     echo -n $VSCODE_QUALITY > .build/quality
   displayName: Prepare cache flag
 
-- task: 1ESLighthouseEng.PipelineArtifactCaching.RestoreCacheV1.RestoreCache@1
+- task: Cache@2
   inputs:
-    keyfile: 'build/.cachesalt, .build/commit, .build/quality'
-    targetfolder: '.build, out-build, out-vscode-min, out-vscode-reh-min, out-vscode-reh-web-min'
-    vstsFeed: 'npm-vscode'
-    platformIndependent: true
-    alias: 'Compilation'
+    key: build/.cachesalt | .build/commit | .build/quality
+    restoreKeys: |
+      build/.cachesalt | .build/commit
+      build/.cachesalt
+    path: '.build, out-build, out-vscode-min, out-vscode-reh-min, out-vscode-reh-web-min'
+    cacheHitVar: CacheRestored-Compilation
+  displayName: Cache
 
 - script: |
     set -e
