@@ -56,7 +56,7 @@ steps:
 
 - task: Cache@2
   inputs:
-    key: build/.cachesalt | .yarnrc | remote/.yarnrc | **/yarn.lock | !**/node_modules/**/yarn.lock | !**/.*/**/yarn.lock
+    key: build/.cachesalt | .yarnrc | remote/.yarnrc | {**/yarn.lock,!**/node_modules/**/yarn.lock,!**/.*/**/yarn.lock}
     restoreKeys: |
       build/.cachesalt | .yarnrc | remote/.yarnrc
       build/.cachesalt
