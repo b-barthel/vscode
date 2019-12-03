@@ -61,7 +61,7 @@ steps:
     restoreKeys: |
       build/.cachesalt | .yarnrc | remote/.yarnrc
       build/.cachesalt
-    path: '**/node_modules, !**/node_modules/**/node_modules'
+    path: '**/node_modules'
     cacheHitVar: CacheRestored
   displayName: Cache node_modules
 
